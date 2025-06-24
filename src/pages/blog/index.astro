@@ -12,30 +12,63 @@ const posts = (await getCollection('blog')).sort(
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									<img width={720} height={360} src={post.data.heroImage} alt="" />
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-	</body>
-</html>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-[#ffca5a] text-gray-800 font-sans">
+    <Header />
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <section>
+        {posts[0] && (
+          <a
+            href={`/blog/${posts[0].id}/`}
+            class="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow mb-12 bg-white border-2"
+          >
+            <div class="aspect-[2/1] w-full">
+              <img
+                src={posts[0].data.heroImage}
+                alt={posts[0].data.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-6">
+              <h2 class="text-3xl font-bold mb-2 hover:text-yellow-600 transition-colors">
+                {posts[0].data.title}
+              </h2>
+              <p class="text-sm text-gray-500">
+                <FormattedDate date={posts[0].data.pubDate} />
+              </p>
+            </div>
+          </a>
+        )}
 
+        <ul class="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+          {posts.slice(1).map((post) => (
+            <li>
+              <a
+                href={`/blog/${post.id}/`}
+                class="block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border-2"
+              >
+                <div class="aspect-[16/9] w-full">
+                  <img
+                    src={post.data.heroImage}
+                    alt={post.data.title}
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="p-4">
+                  <h3 class="text-lg font-semibold mb-1 hover:text-yellow-600 transition-colors">
+                    {post.data.title}
+                  </h3>
+                  <p class="text-sm text-gray-500">
+                    <FormattedDate date={post.data.pubDate} />
+                  </p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>
