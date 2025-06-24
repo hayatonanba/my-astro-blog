@@ -1,0 +1,33 @@
+---
+const { type = "left", title, description, imageUrl } = Astro.props;
+---
+
+{type === "left" ? (
+  <div class="flex items-center gap-6 p-11">
+    <div class="w-[320px] aspect-[4/3] overflow-hidden rounded-lg">
+      <img
+        src={imageUrl}
+        alt={title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="flex-1">
+      <h2 class="text-2xl font-bold">{title}</h2>
+      <p class="text-base text-gray-700 mt-2">{description}</p>
+    </div>
+  </div>
+) : (
+  <div class="flex items-center gap-6 flex-row-reverse p-11">
+    <div class="w-[320px] aspect-[4/3] overflow-hidden rounded-lg">
+      <img
+        src={imageUrl}
+        alt={title}
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="flex-1">
+      <h2 class="text-2xl font-bold">{title}</h2>
+      <p class="text-base text-gray-700 mt-2">{description}</p>
+    </div>
+  </div>
+)}
