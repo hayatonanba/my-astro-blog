@@ -28,12 +28,14 @@ jobs:
       uses: biomejs/setup-biome@v2
       with:
         version: latest
-
+ 
+    - name: Generate Astro types
+      run: |
+        npx astro dev --silent & 
+        wait-on .astro/types.d.ts
+    
     - name: Run Biome
       run: npx biome check --write
-
-    - name: Generate Astro types
-      run: npx astro dev --silent & wait-on .astro/types.d.ts
     
     - name: Run TypeScript Compiler
       run: npx tsc
