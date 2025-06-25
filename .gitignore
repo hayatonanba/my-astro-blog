@@ -25,7 +25,6 @@ pnpm-debug.log*
 .idea/
 
 # R2に保存している画像､動画ファイル等
-src/content/assets
 
 # obsidian vault
 src/content/.obsidian
