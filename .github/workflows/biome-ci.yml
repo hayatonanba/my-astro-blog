@@ -32,7 +32,7 @@ jobs:
     - name: Build Project
       run: npm run build
 
-    upload-images:
+  upload-images:
         runs-on: ubuntu-latest
         needs: build  # buildジョブが成功したら実行
         if: github.event_name == 'push' && contains(join(github.event.head_commit.modified, ','), 'src/content/assets/')
