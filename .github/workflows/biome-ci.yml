@@ -50,4 +50,4 @@ jobs:
 
           - name: Upload to R2
             run: |
-              rclone sync src/content/assets r2:nababa-blog
+              rclone sync src/content/assets r2:nababa-blog/assets
