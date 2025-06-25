@@ -1,5 +1,5 @@
-name = "my-astro-blog"
+name = "my-astro-app"
 compatibility_date = "2025-06-25"
 
-[site]
-bucket = "./dist"
+[assets]
+directory = "./dist"
