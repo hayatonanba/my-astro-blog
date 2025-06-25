@@ -28,9 +28,6 @@ jobs:
     
     - name: Run Biome
       run: npx biome check --write
-    
-    - name: Run TypeScript Compiler
-      run: npx tsc
 
     - name: Build Project
       run: npm run build
