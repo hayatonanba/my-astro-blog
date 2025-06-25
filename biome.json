@@ -7,7 +7,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["main.js", "styles.css"]
+		"ignore": ["main.js", "styles.css", ".astro"]
 	},
 	"formatter": {
 		"enabled": true,
@@ -20,32 +20,32 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
-			"style":{
-				"useNamingConvention":"error"
+			"style": {
+				"useNamingConvention": "error"
 			},
-			"complexity":{
-				"useArrowFunction":"error"
+			"complexity": {
+				"useArrowFunction": "error"
 			},
-			"a11y":{
-				"useAltText":"error",
-				"noBlankTarget":"warn"
+			"a11y": {
+				"useAltText": "error",
+				"noBlankTarget": "warn"
 			},
 			"nursery": {
-        "useSortedClasses": {
-					"level":"error",
-					"fix":"safe",
-					"options":{}
+				"useSortedClasses": {
+					"level": "error",
+					"fix": "safe",
+					"options": {}
 				}
-      },
+			},
 			"suspicious": {
-				"noConsoleLog":"error"
+				"noConsoleLog": "error"
 			}
 		}
 	},
 	"javascript": {
 		"formatter": {
-			"quoteStyle":"single",
-			"jsxQuoteStyle":"single",
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "single",
 			"indentWidth": 2,
 			"lineWidth": 100
 		}

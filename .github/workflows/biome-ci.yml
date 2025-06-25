@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +27,7 @@ jobs:
         version: latest
 
     - name: Run Biome
-      run: npx biome check .
+      run: npx biome check --write
 
     - name: Run TypeScript Compiler
       run: npx tsc
