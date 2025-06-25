@@ -1,0 +1,41 @@
+# This is a llms.txt file. More info: https://llmstxt.org/
+
+# Project Context
+This is a personal blog website built with Astro. The site features blog posts, about page, 
+and a landing page with project ideas. Content is managed through Astro's content collections.
+
+# Relevant Files & Directories
+/src/content/blog/         # Blog post content
+/src/components/          # Reusable UI components
+/src/layouts/            # Page layouts
+/src/pages/              # Route pages
+/public/                 # Static assets
+
+# Key Technologies
+Framework: Astro
+Styling: TailwindCSS
+Content: MDX
+Deployment: Cloudflare Workers
+
+# Model Instructions
+- Respect blog post content structure in MDX/Markdown format
+- Follow established component patterns using Astro components
+- Use TailwindCSS for styling following existing class patterns
+- Maintain Japanese language support for blog content
+- Keep site performance optimization in mind when suggesting changes
+
+# Off Limits
+- Direct access to R2 storage assets
+- Content in .obsidian directory
+- Template drafts
+- Private configuration files
+
+# Style Guide
+- Use Japanese for blog content
+- Follow Biome linting rules
+- Follow existing component structure
+- Maintain responsive design patterns
+
+# Additional Context
+The site is a personal blog focusing on diary entries and project ideas,
+with a playful yellow theme and support for Japanese content.

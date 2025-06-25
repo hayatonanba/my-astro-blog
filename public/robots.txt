@@ -1,0 +1,27 @@
+# robots.txt for Astro + Cloudflare R2 (Obsidian assets use)
+
+User-agent: *
+# Astroの公開サイトのクロールは許可（Disallowなし）
+# R2由来の特定フォルダ・ファイルはクロール禁止
+Disallow: /.obsidian/
+Disallow: /templates/
+Disallow: /src/
+Disallow: /drafts/
+Disallow: /dev/
+Disallow: /private/
+Disallow: /test/
+
+# ファイル単位のクロール制限（万一機密PDF等がアップされた場合に備えて）
+Disallow: /*.pdf$
+Disallow: /*.doc$
+Disallow: /*.md$
+
+# 画像ファイルはインデックス許可（メモ画像表示のため）
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.webp$
+Allow: /assets/
+
+# サイトマップをクローラーに提示（SEO強化）
+Sitemap: https://nababa-diary.hayatonanba.workers.dev/sitemap-index.xml
