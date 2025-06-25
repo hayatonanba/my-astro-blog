@@ -31,3 +31,24 @@ jobs:
 
     - name: Build Project
       run: npm run build
+
+    upload-images:
+        runs-on: ubuntu-latest
+        needs: build  # buildジョブが成功したら実行
+        if: github.event_name == 'push' && contains(join(github.event.head_commit.modified, ','), 'src/content/assets/')
+        steps:
+          - name: Checkout repository
+            uses: actions/checkout@v3
+
+          - name: Install rclone
+            run: |
+              curl https://rclone.org/install.sh | sudo bash
+
+          - name: Configure rclone
+            run: |
+              mkdir -p ~/.config/rclone
+              echo "${{ secrets.RCLONE_CONFIG }}" > ~/.config/rclone/rclone.conf
+
+          - name: Upload to R2
+            run: |
+              rclone sync src/content/assets r2:my-assets
