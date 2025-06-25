@@ -1,4 +1,4 @@
-name: Biome Lint CI
+name: CI
 
 on:
   pull_request:
@@ -6,14 +6,31 @@ on:
       - main
 
 jobs:
-  quality:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-        with:
-          version: latest
-      - name: Run Biome
-        run: biome ci ./src
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'  # 必要なNodeのバージョンを指定
+
+    - name: Install dependencies
+      run: npm ci  # lockfileを使って確実に再現可能な依存解決
+
+    - name: Setup Biome
+      uses: biomejs/setup-biome@v2
+      with:
+        version: latest
+
+    - name: Run Biome
+      run: npx biome check .
+
+    - name: Run TypeScript Compiler
+      run: npx tsc
+
+    - name: Build Project
+      run: npm run build
