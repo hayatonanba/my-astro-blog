@@ -4,6 +4,7 @@ import BaseHead from '../../components/BaseHead.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import MobileNav from '../../components/MobileNav.astro';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -69,6 +70,7 @@ const posts = (await getCollection('blog')).sort(
           ))}
         </ul>
       </section>
+      <MobileNav />
     </main>
   </body>
 </html>
