@@ -3,8 +3,8 @@ const { type = 'left', title, description, imageUrl } = Astro.props;
 ---
 
 {type === "left" ? (
-  <div class="flex items-center gap-6 p-11">
-    <div class="w-[320px] aspect-[4/3] overflow-hidden rounded-lg">
+  <div class="flex flex-col md:flex-row items-center gap-6 p-6 md:p-11">
+    <div class="w-full md:w-[320px] aspect-[4/3] overflow-hidden rounded-lg">
       <img
         src={imageUrl}
         alt={title}
@@ -12,13 +12,13 @@ const { type = 'left', title, description, imageUrl } = Astro.props;
       />
     </div>
     <div class="flex-1">
-      <h2 class="text-2xl font-bold">{title}</h2>
-      <p class="text-base text-gray-700 mt-2">{description}</p>
+      <h2 class="text-xl md:text-2xl font-bold">{title}</h2>
+      <p class="text-sm md:text-base text-gray-700 mt-2">{description}</p>
     </div>
   </div>
 ) : (
-  <div class="flex items-center gap-6 flex-row-reverse p-11">
-    <div class="w-[320px] aspect-[4/3] overflow-hidden rounded-lg">
+  <div class="flex flex-col md:flex-row-reverse items-center gap-6 p-6 md:p-11">
+    <div class="w-full md:w-[320px] aspect-[4/3] overflow-hidden rounded-lg">
       <img
         src={imageUrl}
         alt={title}
@@ -26,8 +26,8 @@ const { type = 'left', title, description, imageUrl } = Astro.props;
       />
     </div>
     <div class="flex-1">
-      <h2 class="text-2xl font-bold">{title}</h2>
-      <p class="text-base text-gray-700 mt-2">{description}</p>
+      <h2 class="text-xl md:text-2xl font-bold">{title}</h2>
+      <p class="text-sm md:text-base text-gray-700 mt-2">{description}</p>
     </div>
   </div>
 )}
